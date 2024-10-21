@@ -1,5 +1,3 @@
-import time
-
 import pytest
 from playwright.sync_api import Page, expect
 
@@ -13,7 +11,8 @@ def test_view_all_data(page: Page):
     expect(page.get_by_role("progressbar")).to_have_count(2)
     expect(page.get_by_role("progressbar")).to_have_count(0)
     page.get_by_role("button", name="See All Data").click()
-    expect(page.get_by_role('gridcell')).to_be_enabled(timeout=100000)
+    e = page.get_by_role('gridcell')
+    expect(e).to_have_count(292)
 
 
 @pytest.mark.skip
