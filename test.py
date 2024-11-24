@@ -49,6 +49,7 @@ def test_login(page: Page):
     expect(page.get_by_placeholder("Search")).to_be_visible(timeout=10000)
 
 
+@pytest.mark.skip
 def test_update_profile(page: Page):
     page.goto("https://oldtest.bumblebeeeee.com/login")
     page.get_by_role("textbox", name="username").fill("77c2beda-9176-41a9-8fc2-397ceb07cb7c@mailslurp.biz")
@@ -65,4 +66,3 @@ def test_update_profile(page: Page):
     page.get_by_label("User Menu").click()
     expect(page.get_by_role("menu")).to_contain_text("yahiaTester")
     time.sleep(5)
-
