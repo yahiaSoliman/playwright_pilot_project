@@ -1,8 +1,9 @@
 name: Run Selenium Automation
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '37 * * * *'
+    - cron: ' * * * *'
 
 jobs:
   run-selenium:
