@@ -20,7 +20,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: '3.11'
 
     # Step 3: Install dependencies
     - name: Install dependencies
@@ -31,4 +31,4 @@ jobs:
     # Step 4: Run your automation script
     - name: Run tests
       run: |
-        test_git_actions.py
+        python test_git_actions.py
