@@ -1,9 +1,7 @@
-import time
-
 import pytest
-from backend_automation.endpoints import EndPoints
+from endpoints import EndPoints
 from testData import TestData
-from backend_automation.Object import Object
+from Object import Object
 
 
 class TestRelations:
