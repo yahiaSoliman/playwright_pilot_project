@@ -32,4 +32,4 @@ jobs:
     - name: Run tests
       run: |
         cd backend_automation
-        pytest build_relation_test.py
+        python -m pytest build_relation_test.py
