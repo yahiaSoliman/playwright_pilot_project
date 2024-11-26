@@ -31,4 +31,4 @@ jobs:
     # Step 4: Run your automation script
     - name: Run tests
       run: |
-        python -pytest test_git_actions.py -v
+        pytest test_git_actions.py
