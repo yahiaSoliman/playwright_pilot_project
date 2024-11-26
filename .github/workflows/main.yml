@@ -31,4 +31,4 @@ jobs:
     # Step 4: Run your automation script
     - name: Run tests
       run: |
-        pytest backend_automation/Object.py
+        pytest backend_automation/build_relation_test.py
