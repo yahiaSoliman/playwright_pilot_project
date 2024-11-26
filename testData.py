@@ -2,29 +2,43 @@ import random
 import re
 import string
 
-import mailslurp_client
+
+"""
+url = "https://oldtest.bumblebeeeee.com/login"
+username = "tester"
+password = "Raqz3Ts0D2fN"
+
+https://development.bumblebeeeee.com/
+User: tester
+Password: Raqz3Ts0D2fN
+
+https://qa.staging.bumblebeeeee.com/
+User: qa.cerebital
+Password: OY0n/dn,K3uJ3k+
+"""
 
 
 class TestData:
-    url = "https://oldtest.bumblebeeeee.com/login"
-    username = "tester"
-    password = "Raqz3Ts0D2fN"
+    change_owner_command_id_qa_stg = 194
+    change_owner_command_id_yahiadev_dev = 61
+    url_staging_qa_api = "https://qa.api.staging.bumblebeeeee.com/"
+    url_staging_qa_ui = "https://qa.staging.bumblebeeeee.com/"
+    url_development_yahiadev_api = "https://yahiadev.api.bumblebeeeee.com/"
+    development_yahiadev_user_01 = {
+        "email": "yahia_development_tenant_01@mailslurp.net",
+        "password": "P@ssw0rd"
+    }
+    staging_qa_user_01 = {
+        "email": "qa.cerebital",
+        "password": "OY0n/dn,K3uJ3k+"
+    }
+    username = "qa.cerebital"
+    password = "OY0n/dn,K3uJ3k+"
     new_account_password = "P@ssw0rd"
     new_account_first_name = "yahia"
     new_account_last_name = "soliman"
     search_query = "test"
     type_filter_value = "item"
-
-    # new email to be used in registration
-    @staticmethod
-    def create_new_email_inbox():
-        configuration = mailslurp_client.Configuration()  # create a mail-slurp configuration
-        configuration.api_key['x-api-key'] = "9c9f1a5e8203d8db15ff02b7a60b315fb6b14f4036c42d538b26a9a87debfce4"
-        api_client = mailslurp_client.ApiClient(configuration)  # create a mail-slurp client
-        inbox_controller = mailslurp_client.InboxControllerApi(api_client)  # create an inbox
-        email_inbox = inbox_controller.create_inbox()
-        wait_for_controller = mailslurp_client.WaitForControllerApi(api_client)
-        return email_inbox, wait_for_controller
 
     # otp to be used in registration
     @staticmethod
@@ -33,8 +47,5 @@ class TestData:
 
     # domain name to be used in registration
     @staticmethod
-    def generate_domain_name():
-        return ''.join(random.choices(string.ascii_lowercase, k=4))
-
-
-
+    def generate_random_name(string_length):
+        return ''.join(random.choices(string.ascii_lowercase, k=string_length))
