@@ -4,7 +4,7 @@ import mailslurp_client
 import pytest
 from playwright.sync_api import Page, expect
 
-from data import TestData
+from data import data
 
 
 @pytest.mark.skip("system doesn't send otp email")
@@ -17,11 +17,11 @@ def test_register(page: Page):
     api_client = mailslurp_client.ApiClient(configuration)  # create a mail-slurp client
     wait_for_controller = mailslurp_client.WaitForControllerApi(api_client)
     page.get_by_placeholder("Email").fill("8e5f0004-469c-412d-8fbf-a353f7eb0b05@mailslurp.biz")
-    page.get_by_placeholder("Password").fill(TestData.new_account_password)
+    page.get_by_placeholder("Password").fill(data.new_account_password)
     page.get_by_role("button", name="Register").click()
     email_content = wait_for_controller.wait_for_latest_email(inbox_id="8e5f0004-469c-412d-8fbf-a353f7eb0b05",
                                                               timeout=30000)
-    otp = TestData.get_otp_from_email_content(email_content.body)
+    otp = data.get_otp_from_email_content(email_content.body)
     print(otp)
     time.sleep(5)
 

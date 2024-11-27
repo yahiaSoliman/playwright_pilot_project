@@ -18,7 +18,7 @@ Password: OY0n/dn,K3uJ3k+
 """
 
 
-class TestData:
+class data:
     change_owner_command_id_qa_stg = 194
     change_owner_command_id_yahiadev_dev = 61
     url_staging_qa_api = "https://qa.api.staging.bumblebeeeee.com/"

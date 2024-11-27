@@ -2,7 +2,7 @@ import pytest
 
 from Object import Object
 from endpoints import EndPoints
-from data import TestData
+from data import data
 
 
 class TestRelations:
@@ -10,18 +10,18 @@ class TestRelations:
 
     @pytest.fixture
     def user_token(self):
-        login_response = EndPoints.login(TestData.url_staging_qa_api, TestData.staging_qa_user_01)
+        login_response = EndPoints.login(data.url_staging_qa_api, data.staging_qa_user_01)
         token = login_response.json()['data']['token']
         return token
 
     def test_subitem_relation_between_two_items(self, user_token):
-        ob_1 = Object(user_token, TestData.url_staging_qa_api)  # create class object
-        name = "automation_item_" + TestData.generate_random_name(4)  # generate random name
+        ob_1 = Object(user_token, data.url_staging_qa_api)  # create class object
+        name = "automation_item_" + data.generate_random_name(4)  # generate random name
         response = ob_1.create(name, 27, 1, 1, 4)  # create new object
         assert 201 == response.status_code
 
-        ob_2 = Object(user_token, TestData.url_staging_qa_api)  # create class object
-        name = "automation_item_" + TestData.generate_random_name(4)  # generate random name
+        ob_2 = Object(user_token, data.url_staging_qa_api)  # create class object
+        name = "automation_item_" + data.generate_random_name(4)  # generate random name
         response = ob_2.create(name, 27, 1, 1, 4)  # create new object
         assert 201 == response.status_code
 
