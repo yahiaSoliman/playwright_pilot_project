@@ -3,7 +3,7 @@ name: Run Selenium Automation
 on:
   workflow_dispatch:
   schedule:
-    - cron: '10 * * * *'
+    - cron: '0 6 * * *'
 
 jobs:
   run-selenium:
@@ -31,4 +31,4 @@ jobs:
     # Step 4: Run your automation script
     - name: Run tests
       run: |
-        pytest --no-header --no-summary -q backend_automation/build_relation_test.py
+        pytest build_relation_test.py
