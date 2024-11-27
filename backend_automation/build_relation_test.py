@@ -1,7 +1,8 @@
 import pytest
+
+from Object import Object
 from endpoints import EndPoints
 from testData import TestData
-from Object import Object
 
 
 class TestRelations:
