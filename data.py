@@ -3,6 +3,7 @@ import re
 import string
 
 
+
 """
 url = "https://oldtest.bumblebeeeee.com/login"
 username = "tester"
@@ -18,7 +19,7 @@ Password: OY0n/dn,K3uJ3k+
 """
 
 
-class data:
+class Data:
     change_owner_command_id_qa_stg = 194
     change_owner_command_id_yahiadev_dev = 61
     url_staging_qa_api = "https://qa.api.staging.bumblebeeeee.com/"
@@ -39,6 +40,8 @@ class data:
     new_account_last_name = "soliman"
     search_query = "test"
     type_filter_value = "item"
+
+    # new email to be used in registration
 
     # otp to be used in registration
     @staticmethod
