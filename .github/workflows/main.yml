@@ -2,16 +2,12 @@ name: Run Selenium Automation
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '15 * * * *'
 
 jobs:
   run-selenium:
     runs-on: windows-latest
-    env:
-      TZ: Africa/Cairo
-
-    strategy:
-      matrix:
-        file: [ open_command_test.py, test_git_actions.py ]
 
     steps:
     # Step 1: Checkout the repository
@@ -36,4 +32,5 @@ jobs:
     # Step 4: Run your automation script
     - name: Run tests
       run: |
-        pytest ${{ matrix.file }}
+        pytest test_git_actions.py
+
