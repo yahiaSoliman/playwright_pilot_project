@@ -4,7 +4,7 @@ import mailslurp_client
 import pytest
 from playwright.sync_api import Page, expect
 
-from data import data
+from pure_water.data import data
 
 
 @pytest.mark.skip("system doesn't send otp email")

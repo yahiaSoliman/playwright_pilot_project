@@ -1,5 +1,5 @@
 from baseClass import BaseClass
-from data import Data
+from pure_water.data import Data
 from endpoints import EndPoints
 from interactions_compound import CompoundInteractions
 from interactions_single import SingleInteractions
